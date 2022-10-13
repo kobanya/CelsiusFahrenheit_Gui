@@ -21,7 +21,7 @@ public class CelsiusConverterGUI extends  JFrame {
                 // váltsd át
                 int tempFahr = (int)(Double.parseDouble(celsiusTexfield.getText())
                         * 1.8 + 32);
-                FahrenheitLabel.setText(tempFahr +"  Fahremheit  ");
+                FahrenheitLabel.setText("Atváltás után a hőfok : "+tempFahr +"  Fahremheit  ");
             }
         });
     }
