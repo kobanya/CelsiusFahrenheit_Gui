@@ -1,12 +1,16 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class CelsiusConverterGUI extends  JFrame {
     private JPanel mainPanel;
     private JTextField celsiusTexfield;
     private JButton ConverterButton;
     private JLabel FahrenheitLabel;
+    private JButton CelsiusButton;
 
     public CelsiusConverterGUI(String title)   {
         super (title);
@@ -21,7 +25,19 @@ public class CelsiusConverterGUI extends  JFrame {
                 // váltsd át
                 int tempFahr = (int)(Double.parseDouble(celsiusTexfield.getText())
                         * 1.8 + 32);
-                FahrenheitLabel.setText("Atváltás után a hőfok : "+tempFahr +"  Fahremheit  ");
+                FahrenheitLabel.setText("Átváltás után a hőfok : "+tempFahr +"  Fahremheit  ");
+            }
+        });
+
+        CelsiusButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //olvasd be Fahrenheitben
+                // alakítsd át tizedes számmá
+                //váltsd át
+                int tempcelsius=(int) (Double.parseDouble(celsiusTexfield.getText())
+                      -32  / 1.8000 );
+        FahrenheitLabel.setText("Átváltás után a hőfok: "+ tempcelsius+" Celsius fok");
             }
         });
     }
